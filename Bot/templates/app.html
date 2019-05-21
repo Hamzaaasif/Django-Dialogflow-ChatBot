@@ -1,2 +1,75 @@
-<h1>Chat Bot</h1>
-<p>{{ response }}</p>
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat Bot UI</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+    <div class="headerBar">
+        <div class="user-photo"><img src="{% static 'ana.JPG' %}"></div>
+        <p class="title">BOT </p>
+    </div>
+
+    <div class="chatbox">
+
+        <div id="chatlogs" class="chatlogs">
+            <!-- first hello msgs div -->
+            <div class="chat friend">
+                <div class="user-photo"><img src="{% static 'ana.JPG' %}"></div>
+                <p class="chat-message">Hello!</p>
+            </div>
+            <!-- your typed msg render here -->
+            
+            <!-- loading logo div until response comes from api -->
+            <div class="chat friend" id="loadingGif" style="display: none;">
+                <div class="user-photo"><img src="{% static 'ana.JPG' %}"></div>
+                <div class="gif"><img src="{% static 'loading.gif' %}"></div>
+            </div>
+            <!-- bot reply render here -->
+
+            {% for i in Chat1 %}
+            <div class="chat friend">
+                <div class="{% cycle 'chat friend' 'chat self'%}"></div>
+                <div class="user-photo"><img src="{% static 'ana.JPG' %}"></div>
+                <p class="chat-message">{{i}} </p>
+             </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="chat-form">
+        <!-- user inputs from here -->
+        <div id="inputDiv">
+            <div id="buttonDiv"></div>
+			<form method="POST" action="{% url 'Bot:home' %}">{% csrf_token %}
+            <input id = "inputDiv" type="text" name="myvalue">
+            <input id = "chat-form-buttons" type = "submit" value= "send">
+        </form>
+            <!--textarea class="input" placeholder="Message" rows="1" data-min-rows='1'></textarea>-->
+        </div>
+        <!-- ye shashkay k liye dalay ve hen bas -->
+        <!-- onsubmit pe function chaladena enter krty hee render hojaiga 
+        wrna ye button tag se comment hata k id de k sumbit krlo -->
+        <div id="chat-form-buttons">
+            <!-- <button>SUBMIT</button> -->
+            <input type="image" id="rec" src="{% static 'microphone.png' %}" > 
+            <input type="image" src="{% static 'keyboard.png' %}" id="switchInputType" />
+        </div>
+    </div>
+    <!-- tum apni python ki chezen link kraogy js ki ni nechy shyd -->
+    <!-- <script type="text/javascript" src="index.js"></script> --> 
+
+    <scipt>
+      window.onload= function(){
+        var a = document.getElementByID("chatlogs");
+        a.scrollTop = a.scrollHeight;
+      }
+    </scipt>
+</body>
+
+</html>
