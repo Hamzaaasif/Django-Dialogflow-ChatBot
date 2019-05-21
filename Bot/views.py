@@ -9,15 +9,14 @@ def home(request):
   if request.method == "POST":
     userpost =request.POST['myvalue']
   print(userpost)  
-  myurl='https://api.dialogflow.com/v1/query?v=20150910&contexts=smalltalk&lang=en&query='+userpost+'&sessionId=12345&timezone=America/New_York'
+  myurl='https://api.dialogflow.com/v1/query?v=20150910&contexts=mayar&lang=en&query='+userpost+'&sessionId=12345&timezone=America/New_York'
   Headers = {
-    'Authorization': 'Bearer a5aaf3c137ce49b1ae3710de1528036e',
+    'Authorization': 'Bearer 9c374562864a43939a83047fa43da137',
   } 
   r =requests.get(myurl, headers=Headers)
   print("The response", r.json()['result']['fulfillment']['speech'])
-
-  SaveChat.append(userpost)
-  SaveChat.append(r.json()['result']['fulfillment']['speech'])
+  SaveChat.append("User: "+userpost)
+  SaveChat.append("Bot: "+r.json()['result']['fulfillment']['speech'])
   UserChat={'Chat1': SaveChat}
   #BOTChat={'Bot':UserChat }
 

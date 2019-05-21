@@ -1,6 +1,6 @@
 * {
 
-    margin: 0;
+    margin: 5px;
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
@@ -8,16 +8,14 @@
 
 }
 
-body {
-    background: rgb(16, 17, 19);
-}
+
 
 .chatbox {
     
-    width: 500px;
-    min-width: 390px;
-    height: 400px;
-    background: white;
+    width: 600px;
+    min-width: 500px;
+    height: 450px;
+    background: green;
     padding: 25px;
     margin: 0px auto 0px auto;
     box-shadow: 0 3px #ccc;
@@ -28,8 +26,8 @@ body {
 }
 
 .chatlogs {
-    padding: 10px;
-    width: 100%;
+    padding: 5px;
+    width: 80%;
     height: 80%;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -41,7 +39,7 @@ body {
 }
 
 .chatlogs::-webkit-scrollbar-thumb{
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(0, 0, 0, .1);
 }
 
@@ -77,13 +75,14 @@ body {
     color: black;
     width: auto;
     max-width: 70%;
-    background: rgb(140, 140, 230);
+    background-color: blueviolet;
     border-radius: 20px 20px 20px 0;
 }
 
 .self .chat-message {
     color: white;
     max-width: 80%;
+    background-color: blue;
     width: auto;
     margin: 5px 0 5px auto;
     border-radius: 20px 20px 0px 20px;
@@ -122,7 +121,7 @@ body {
 
     margin: 0px auto 0px auto;
     display: flex;
-    width: 500px;
+    width: 600px;
     min-width: 390px;
     align-items: flex-start;
     overflow: auto;
@@ -135,7 +134,7 @@ body {
 
 #inputDiv {
     width: 75%;
-    margin-right: 15px;
+    margin-right: 40px;
     
 }
 
@@ -144,11 +143,11 @@ body {
     padding: 5px 5px 5px 15px; 
     background: #fbfbfb;
     width: 100%;
-    min-height: 5px;
-    border: 2px solid lightblue;
+    min-height: 7px;
+    border: 1px solid lightblue;
     border-radius: 20px;
     resize: none;
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
     margin: 15px 0px 15px 10px;
     display:block;
@@ -212,3 +211,11 @@ body {
     width: inherit;
 
 }
+
+/* .chatUser{
+    background-color: green;
+}
+
+.chatBott{
+    background: red;
+} */
