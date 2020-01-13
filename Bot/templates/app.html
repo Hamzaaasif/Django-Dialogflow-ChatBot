@@ -19,7 +19,6 @@
     <div class="chatbox">
 
         <div id="chatlogs" class="chatlogs">
-            <!-- first hello msgs div -->
             <div class="chat friend">
                 <div class=""></div>
             </div>
@@ -41,31 +40,23 @@
         </div>
     </div>
     <div class="chat-form">
-        <!-- user inputs from here -->
         <div id="inputDiv">
             <div id="buttonDiv"></div>
 			<form method="POST" action="{% url 'Bot:home' %}">{% csrf_token %}
             <input id = "inputDiv" type="text" name="myvalue">
             <input style="    background-color: red;color: white;padding: 6px 32px;text-decoration: none; margin: 4px 2px;cursor: pointer;" id = "chat-form-buttons" type = "submit" value= "send">
         </form>
-            <!--textarea class="input" placeholder="Message" rows="1" data-min-rows='1'></textarea>-->
         </div>
-        <!-- ye shashkay k liye dalay ve hen bas -->
-        <!-- onsubmit pe function chaladena enter krty hee render hojaiga 
-        wrna ye button tag se comment hata k id de k sumbit krlo -->
         <div id="chat-form-buttons">
-            <!-- <button>SUBMIT</button> -->
         </div>
     </div>
-    <!-- tum apni python ki chezen link kraogy js ki ni nechy shyd -->
-    <!-- <script type="text/javascript" src="index.js"></script> --> 
 </div>
-<script>
-    window.onload= function(){
-      var a = document.getElementByID("chatlogs");
-      a.scrollTop = a.scrollHeight;
-    }
-  </script>
+    <script>
+      window.onload= function(){
+        var a = document.getElementByID("chatlogs");
+        a.scrollTop = a.scrollHeight;
+      }
+    </script>
 </body>
 
 </html>

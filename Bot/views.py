@@ -2,10 +2,8 @@ from django.shortcuts import render
 import requests
 
 SaveChat=[]
-botchat=[]
-
 def home(request):
-  userpost = 'hey'
+  userpost = 'Start conversion'
   if request.method == "POST":
     userpost =request.POST['myvalue']
   print(userpost)  
@@ -14,13 +12,9 @@ def home(request):
     'Authorization': 'Bearer 9c374562864a43939a83047fa43da137',
   } 
   r =requests.get(myurl, headers=Headers)
-  print("The response", r.json()['result']['fulfillment']['speech'])
   SaveChat.append("User: "+userpost)
   SaveChat.append("Bot: "+r.json()['result']['fulfillment']['speech'])
   UserChat={'Chat1': SaveChat}
-  #BOTChat={'Bot':UserChat }
-
-  # rendering the template in templates folder
   return render(request, "app.html",UserChat )
 
 
